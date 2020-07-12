@@ -17,8 +17,6 @@ public class QuantityMeasurementTest {
       public void given12InchAnd1Feet_IfEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
-            System.out.println(firstValue);
-            System.out.println(secondValue);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 }
