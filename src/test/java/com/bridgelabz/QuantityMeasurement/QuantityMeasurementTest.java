@@ -25,4 +25,16 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 0.0);
             Assert.assertEquals(firstValue,secondValue,0.0);
       }
+      @Test
+      public void given24InchAnd2Feet_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 24.0);
+            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+      @Test
+      public void givenSameValueForInch_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 4.2);
+            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 4.2);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
