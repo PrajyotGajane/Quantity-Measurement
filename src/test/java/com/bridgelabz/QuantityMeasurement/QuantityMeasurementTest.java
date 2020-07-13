@@ -1,6 +1,6 @@
 package com.bridgelabz.QuantityMeasurement;
 
-import com.bridgelabz.QuantityMeasurement.service.UnitType;
+import com.bridgelabz.QuantityMeasurement.utility.UnitType;
 import com.bridgelabz.QuantityMeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Before;
@@ -59,6 +59,7 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForInch_WhenEqual_ShouldReturnFalse() {
             try {
@@ -72,18 +73,21 @@ public class QuantityMeasurementTest {
       public void givenReferenceForInch_WhenEqual_ShouldReturnTrue() {
             Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement));
       }
+
       @Test
       public void givenTypeForInch_WhenEqual_ShouldReturnTrue() {
             QuantityMeasurement quantityTypeOne = new QuantityMeasurement();
             QuantityMeasurement quantityTypeTwo = new QuantityMeasurement();
             Assert.assertEquals(quantityTypeOne, quantityTypeTwo);
       }
+
       @Test
       public void givenSameValueForInch_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       //----------------------------------------Yard--------------------------------------------
       @Test
       public void given3FeetAnd1Yard_WhenEqual_ShouldReturnTrue() {
@@ -91,30 +95,35 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given1FeetAnd1Yard_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given1InchAnd1Yard_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given1YardAnd36Inch_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 36.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given36InchAnd1Yard_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 36.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given1YardAnd3Feet_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 3.0);
