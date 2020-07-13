@@ -8,6 +8,8 @@ public class QuantityMeasurement {
       public boolean equals(Object object) {
             if (object == this)
                   return true;
+            if (this.getClass() == object.getClass())
+                  return true;
             return super.equals(object);
       }
 }
