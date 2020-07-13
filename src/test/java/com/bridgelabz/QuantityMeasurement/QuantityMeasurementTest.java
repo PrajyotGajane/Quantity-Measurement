@@ -27,6 +27,10 @@ public class QuantityMeasurementTest {
             }
       }
       @Test
+      public void givenReferenceForFeet_IfEqual_ShouldReturnTrue() {
+            Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement));
+      }
+      @Test
       public void given12InchAnd1Feet_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
