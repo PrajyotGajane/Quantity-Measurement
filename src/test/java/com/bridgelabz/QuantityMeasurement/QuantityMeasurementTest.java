@@ -18,6 +18,7 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 0.0);
             Assert.assertEquals(firstValue,secondValue,0.0);
       }
+      //----------------------------------------Feet--------------------------------------------
       @Test
       public void givenNullValueForFeet_ShouldReturnFalse() {
             try {
@@ -36,29 +37,21 @@ public class QuantityMeasurementTest {
             QuantityMeasurement quantityTypeTwo = new QuantityMeasurement();
             Assert.assertEquals(quantityTypeOne, quantityTypeTwo);
       }
-      @Test
-      public void given12InchAnd1Feet_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
-            Assert.assertEquals(firstValue, secondValue, 0.0);
-      }
 
-      @Test
-      public void given24InchAnd2Feet_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 24.0);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.0);
-            Assert.assertEquals(firstValue, secondValue, 0.0);
-      }
-      @Test
-      public void givenSameValueForInch_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 3.1);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 3.1);
-            Assert.assertEquals(firstValue, secondValue, 0.0);
-      }
       @Test
       public void givenSameValueForFeet_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
             Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
+      //----------------------------------------Inch--------------------------------------------
+      @Test
+      public void givenNullValueForInch_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(InchToFeet.INCH, null);
+            } catch (NullPointerException e) {
+                  Assert.assertEquals(null, e.getMessage());
+            }
       }
 }
