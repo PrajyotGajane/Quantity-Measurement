@@ -72,5 +72,10 @@ public class QuantityMeasurementTest {
       public void givenReferenceForInch_WhenEqual_ShouldReturnTrue() {
             Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement));
       }
-
+      @Test
+      public void givenTypeForInch_WhenEqual_ShouldReturnTrue() {
+            QuantityMeasurement quantityTypeOne = new QuantityMeasurement();
+            QuantityMeasurement quantityTypeTwo = new QuantityMeasurement();
+            Assert.assertEquals(quantityTypeOne, quantityTypeTwo);
+      }
 }
