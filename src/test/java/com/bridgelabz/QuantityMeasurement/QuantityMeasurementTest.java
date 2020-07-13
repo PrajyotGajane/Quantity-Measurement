@@ -78,4 +78,10 @@ public class QuantityMeasurementTest {
             QuantityMeasurement quantityTypeTwo = new QuantityMeasurement();
             Assert.assertEquals(quantityTypeOne, quantityTypeTwo);
       }
+      @Test
+      public void givenSameValueForInch_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
+            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
