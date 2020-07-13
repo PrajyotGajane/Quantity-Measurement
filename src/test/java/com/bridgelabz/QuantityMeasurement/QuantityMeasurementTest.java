@@ -31,6 +31,12 @@ public class QuantityMeasurementTest {
             Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement));
       }
       @Test
+      public void givenType_IfEqual_ShouldReturnTrue() {
+            QuantityMeasurement quantityTypeOne = new QuantityMeasurement();
+            QuantityMeasurement quantityTypeTwo = new QuantityMeasurement();
+            Assert.assertEquals(quantityTypeOne, quantityTypeTwo);
+      }
+      @Test
       public void given12InchAnd1Feet_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
