@@ -13,17 +13,26 @@ public class QuantityMeasurementTest {
             quantityMeasurement = new QuantityMeasurement();
       }
       @Test
-      public void given12InchAnd1Feet_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
-            Assert.assertEquals(firstValue, secondValue, 0.0);
-      }
-      @Test
       public void given0InchAnd0Feet_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 0.0);
             Assert.assertEquals(firstValue,secondValue,0.0);
       }
+      @Test
+      public void givenNullValueForFeet_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(InchToFeet.FEET, null);
+            } catch (NullPointerException e) {
+                  Assert.assertEquals(null, e.getMessage());
+            }
+      }
+      @Test
+      public void given12InchAnd1Feet_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 12.0);
+            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 1.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
       @Test
       public void given24InchAnd2Feet_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 24.0);
