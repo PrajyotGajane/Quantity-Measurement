@@ -115,4 +115,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void given1YardAnd3Feet_WhenNotEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 3.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
