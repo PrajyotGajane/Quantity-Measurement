@@ -1,6 +1,6 @@
 package com.bridgelabz.QuantityMeasurement;
 
-import com.bridgelabz.QuantityMeasurement.service.InchToFeet;
+import com.bridgelabz.QuantityMeasurement.service.UnitType;
 import com.bridgelabz.QuantityMeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,15 +19,15 @@ public class QuantityMeasurementTest {
       //----------------------------------------Feet--------------------------------------------
       @Test
       public void given0Feet_WhenEqual_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 0.0);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 0.0);
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 
       @Test
       public void givenNullValueForFeet_WhenEqual_ShouldReturnFalse() {
             try {
-                  quantityMeasurement.quantityMeasurer(InchToFeet.FEET, null);
+                  quantityMeasurement.quantityMeasurer(UnitType.FEET, null);
             } catch (NullPointerException e) {
                   Assert.assertEquals(null, e.getMessage());
             }
@@ -47,22 +47,22 @@ public class QuantityMeasurementTest {
 
       @Test
       public void givenSameValueForFeet_WhenEqual_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 
       //----------------------------------------Inch--------------------------------------------
       @Test
       public void given0Inch_WhenEqual_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 0.0);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.INCH, 0.0);
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
       @Test
       public void givenNullValueForInch_WhenEqual_ShouldReturnFalse() {
             try {
-                  quantityMeasurement.quantityMeasurer(InchToFeet.INCH, null);
+                  quantityMeasurement.quantityMeasurer(UnitType.INCH, null);
             } catch (NullPointerException e) {
                   Assert.assertEquals(null, e.getMessage());
             }
@@ -80,8 +80,10 @@ public class QuantityMeasurementTest {
       }
       @Test
       public void givenSameValueForInch_WhenEqual_ShouldReturnTrue() {
-            firstValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
-            secondValue = quantityMeasurement.quantityMeasurer(InchToFeet.FEET, 2.2);
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 2.2);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      //----------------------------------------Yard--------------------------------------------
+
 }
