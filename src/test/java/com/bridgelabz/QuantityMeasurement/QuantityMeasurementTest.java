@@ -97,4 +97,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void given1InchAnd1Yard_WhenNotEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
+            Assert.assertNotEquals(firstValue, secondValue, 0.0);
+      }
 }
