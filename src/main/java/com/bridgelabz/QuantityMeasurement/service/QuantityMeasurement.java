@@ -2,7 +2,7 @@ package com.bridgelabz.QuantityMeasurement.service;
 
 public class QuantityMeasurement {
       public double quantityMeasurer(UnitType type, Double valuePassed) {
-            return type.inchToFeet * valuePassed;
+            return type.conversionValue * valuePassed;
       }
       @Override
       public boolean equals(Object object) {
