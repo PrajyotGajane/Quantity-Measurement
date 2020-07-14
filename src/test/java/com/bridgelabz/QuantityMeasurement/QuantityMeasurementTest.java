@@ -65,8 +65,8 @@ public class QuantityMeasurementTest {
       public void givenNullValueForInch_WhenEqual_ShouldReturnFalse() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.INCH, null);
-            } catch (NullPointerException e) {
-                  Assert.assertEquals(null, e.getMessage());
+            } catch (QuantityMeasurementException e) {
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
 
@@ -134,9 +134,18 @@ public class QuantityMeasurementTest {
 
       //----------------------------------------Centimeters--------------------------------------------
       @Test
-      public void given0CentimeterAnd0Centimeter_IfEqual_ShouldReturnTrue() {
+      public void given0CentimeterAnd0Centimeter_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+      @Test
+      public void givenNullValueForCentimeter_WhenEqual_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
       }
 }
