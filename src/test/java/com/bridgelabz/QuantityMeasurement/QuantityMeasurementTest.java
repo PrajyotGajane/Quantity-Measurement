@@ -139,6 +139,7 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForCentimeter_WhenEqual_ShouldReturnFalse() {
             try {
@@ -148,6 +149,7 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       @Test
       public void given0CentimeterAnd2Inch_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
@@ -155,4 +157,10 @@ public class QuantityMeasurementTest {
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
 
+      @Test
+      public void given2InchAnd5Centimeter_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 5.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
