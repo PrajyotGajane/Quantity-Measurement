@@ -1,5 +1,6 @@
 package com.bridgelabz.QuantityMeasurement;
 
+import com.bridgelabz.QuantityMeasurement.exception.QuantityMeasurementException;
 import com.bridgelabz.QuantityMeasurement.utility.UnitType;
 import com.bridgelabz.QuantityMeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
@@ -28,8 +29,8 @@ public class QuantityMeasurementTest {
       public void givenNullValueForFeet_WhenEqual_ShouldReturnFalse() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.FEET, null);
-            } catch (NullPointerException e) {
-                  Assert.assertEquals(null, e.getMessage());
+            } catch (QuantityMeasurementException e) {
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
 
@@ -128,6 +129,14 @@ public class QuantityMeasurementTest {
       public void given1YardAnd3Feet_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 3.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.YARD, 1.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
+      //----------------------------------------Centimeters--------------------------------------------
+      @Test
+      public void given0CentimeterAnd0Centimeter_IfEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 }
