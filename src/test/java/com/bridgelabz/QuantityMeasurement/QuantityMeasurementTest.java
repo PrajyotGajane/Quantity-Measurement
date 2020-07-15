@@ -11,6 +11,7 @@ public class QuantityMeasurementTest {
       QuantityMeasurement quantityMeasurement;
       double firstValue;
       double secondValue;
+      double total;
 
       @Before
       public void setUp() {
@@ -170,16 +171,16 @@ public class QuantityMeasurementTest {
       public void given2InchAnd2Inch_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
-            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
-            Assert.assertEquals(4.0, check, 0.0);
+            total = quantityMeasurement.valueAddition(firstValue, secondValue);
+            Assert.assertEquals(4.0, total, 0.0);
       }
 
       @Test
       public void given1FeetAnd2Inch_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
-            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
-            Assert.assertEquals(14.0, check, 0.0);
+            total = quantityMeasurement.valueAddition(firstValue, secondValue);
+            Assert.assertEquals(14.0, total, 0.0);
       }
 
       @Test
@@ -194,8 +195,8 @@ public class QuantityMeasurementTest {
       public void given2InchAnd2_5CM_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 2.5);
-            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
-            Assert.assertEquals(3.0, check, 0.0);
+            Double total = quantityMeasurement.valueAddition(firstValue, secondValue);
+            Assert.assertEquals(3.0, total, 0.0);
       }
 
       //----------------------------------------Litre--------------------------------------------
@@ -268,6 +269,7 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       //----------------------------------------Millilitre--------------------------------------------
       @Test
       public void given0MillilitreAnd0Millilitre_WhenEqual_ShouldReturnTrue() {
@@ -275,12 +277,14 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0LitreAnd0Millilitre_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForMillilitre_IfEqual_ShouldReturnFalse() {
             try {
@@ -290,10 +294,19 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       @Test
       public void given1000MillilitreAnd1Litre_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 1000.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
+      @Test
+      public void given1GallonAnd3Point78Litre_WhenEqualTo7Point57Litre_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 3.78);
+            total = quantityMeasurement.valueAddition(firstValue,secondValue);
+            Assert.assertEquals(7.56, total, 0.0);
       }
 }
