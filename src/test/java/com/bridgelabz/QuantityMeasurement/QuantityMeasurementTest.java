@@ -457,4 +457,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 2.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void given212FahrenheitAnd100Celsius_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 212.0);
+            secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 100.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
