@@ -39,6 +39,10 @@ public class QuantityMeasurement {
       }
 
       public Double temperatureConversion(UnitType type, double valuePassed) {
-            return 0.0;
+            Double temperature = valuePassed;
+            if (type.equals(type.CELSIUS)) {
+                  temperature = (valuePassed * (9.0 / 5)) + 32;
+            }
+            return temperature;
       }
 }
