@@ -202,4 +202,11 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
+      @Test
+      public void given0GallonAnd0Litre_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
