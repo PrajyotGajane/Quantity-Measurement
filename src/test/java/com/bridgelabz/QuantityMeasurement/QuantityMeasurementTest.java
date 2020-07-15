@@ -339,5 +339,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
-
+      @Test
+      public void given0KilogramAnd1Gram_WhenNotEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1.0);
+            Assert.assertNotEquals(firstValue, secondValue, 0.0);
+      }
 }
