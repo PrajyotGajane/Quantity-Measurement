@@ -204,9 +204,15 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void given0GallonAnd0Litre_WhenEqual_ShouldReturnTrue() {
+      public void given0LitreAnd0Gallon_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+      @Test
+      public void given0GallonAnd1Litre_WhenNotEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
+            Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
 }
