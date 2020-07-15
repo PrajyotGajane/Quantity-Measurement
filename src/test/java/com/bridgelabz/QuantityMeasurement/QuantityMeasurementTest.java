@@ -309,4 +309,11 @@ public class QuantityMeasurementTest {
             total = quantityMeasurement.valueAddition(firstValue,secondValue);
             Assert.assertEquals(7.56, total, 0.0);
       }
+      @Test
+      public void given1LitreAnd1000Millilitre_WhenEqualTo2Litre_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 1000.0);
+            total = quantityMeasurement.valueAddition(firstValue,secondValue);
+            Assert.assertEquals(2.0, total, 0.0);
+      }
 }
