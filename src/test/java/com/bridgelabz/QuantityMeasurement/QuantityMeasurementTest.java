@@ -379,4 +379,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void given0TonneAnd0Kilogram_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
