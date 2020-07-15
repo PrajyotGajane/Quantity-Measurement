@@ -229,11 +229,21 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       @Test
-      public void given1LitreAnd1000Millilitre_WhenEqual_ShouldReturnTrue(){
+      public void given1LitreAnd1000Millilitre_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 1000.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
-
       }
+
+      //----------------------------------------Gallon--------------------------------------------
+      @Test
+      public void given0GallonAnd0Gallon_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
+
 }
