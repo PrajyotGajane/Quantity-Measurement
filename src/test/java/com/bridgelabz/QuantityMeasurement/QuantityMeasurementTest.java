@@ -163,4 +163,12 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 5.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
+      @Test
+      public void add() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
+            Double check = quantityMeasurement.addition(firstValue,secondValue);
+            Assert.assertEquals(4.0, check, 0.0);
+      }
 }
