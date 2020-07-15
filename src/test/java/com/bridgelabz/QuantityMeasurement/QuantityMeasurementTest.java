@@ -27,7 +27,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForFeet_WhenEqual_ShouldReturnFalse() {
+      public void givenNullValueForFeet_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.FEET, null);
             } catch (QuantityMeasurementException e) {
@@ -142,7 +142,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForCentimeter_WhenEqual_ShouldReturnFalse() {
+      public void givenNullValueForCentimeter_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, null);
             } catch (QuantityMeasurementException e) {
@@ -222,7 +222,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForLitre_WhenExceptionOccurs_ShouldReturnTrue() {
+      public void givenNullValueForLitre_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.LITRE, null);
             } catch (QuantityMeasurementException e) {
@@ -261,7 +261,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForGallon_IfEqual_ShouldReturnTrue() {
+      public void givenNullValueForGallon_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.GALLON, null);
             } catch (QuantityMeasurementException e) {
@@ -286,7 +286,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForMillilitre_IfEqual_ShouldReturnFalse() {
+      public void givenNullValueForMillilitre_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, null);
             } catch (QuantityMeasurementException e) {
@@ -327,7 +327,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForKilogram_WhenEqual_ShouldReturnFalse() {
+      public void givenNullValueForKilogram_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, null);
             } catch (QuantityMeasurementException e) {
@@ -366,7 +366,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForGram_IfEqual_ShouldReturnFalse() {
+      public void givenNullValueForGram_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.GRAM, null);
             } catch (QuantityMeasurementException e) {
@@ -391,7 +391,7 @@ public class QuantityMeasurementTest {
       }
 
       @Test
-      public void givenNullValueForTonne_IfEqual_ShouldReturnFalse() {
+      public void givenNullValueForTonne_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.TONNE, null);
             } catch (QuantityMeasurementException e) {
@@ -425,4 +425,21 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void givenNullValueForFahrenheit_WhenExceptionOccurs_ShouldReturnCustomException() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.FAHRENHEIT, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
+      }
+      //----------------------------------------Celsius--------------------------------------------
+      @Test
+      public void given0CelsiusAnd0Celsius_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
+            secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
 }
