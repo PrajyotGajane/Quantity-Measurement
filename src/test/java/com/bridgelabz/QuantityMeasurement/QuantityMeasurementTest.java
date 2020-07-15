@@ -419,4 +419,10 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 3.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void given0FahrenheitAnd0Celsius_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 32.0);
+            secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
