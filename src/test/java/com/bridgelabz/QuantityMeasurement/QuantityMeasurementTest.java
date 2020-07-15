@@ -281,4 +281,13 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void givenNullValueForMillilitre_IfEqual_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
+      }
 }
