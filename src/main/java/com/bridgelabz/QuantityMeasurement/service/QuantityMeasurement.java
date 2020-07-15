@@ -19,6 +19,13 @@ public class QuantityMeasurement {
             }
       }
 
+      /**
+       * adds the two units passed
+       *
+       * @param firstValue
+       * @param secondValue
+       * @return total value of the addition
+       */
       public Double valueAddition(double firstValue, double secondValue) {
             return firstValue + secondValue;
       }
@@ -29,5 +36,9 @@ public class QuantityMeasurement {
             if (this.getClass() == object.getClass())
                   return true;
             return false;
+      }
+
+      public Double temperatureConversion(UnitType type, double valuePassed) {
+            return 0.0;
       }
 }

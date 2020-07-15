@@ -406,4 +406,11 @@ public class QuantityMeasurementTest {
             total = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(1001.0, total, 0.0);
       }
+      //----------------------------------------Fahrenheit--------------------------------------------
+      @Test
+      public void given0FahrenheitAnd0Fahrenheit_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 0.0);
+            secondValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
