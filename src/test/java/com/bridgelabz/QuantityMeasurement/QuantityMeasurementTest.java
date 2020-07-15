@@ -316,4 +316,12 @@ public class QuantityMeasurementTest {
             total = quantityMeasurement.valueAddition(firstValue,secondValue);
             Assert.assertEquals(2.0, total, 0.0);
       }
+      //----------------------------------------Kilogram--------------------------------------------
+      @Test
+      public void given0KilogramAnd0Kilogram_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+
 }
