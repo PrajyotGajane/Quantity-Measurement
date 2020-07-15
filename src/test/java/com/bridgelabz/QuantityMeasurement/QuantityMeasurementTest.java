@@ -363,4 +363,13 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1000.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void givenNullValueForGram_IfEqual_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.GRAM, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
+      }
 }
