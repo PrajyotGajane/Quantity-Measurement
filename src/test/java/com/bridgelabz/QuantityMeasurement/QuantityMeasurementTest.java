@@ -195,4 +195,11 @@ public class QuantityMeasurementTest {
             Double check = quantityMeasurement.addition(firstValue,secondValue);
             Assert.assertEquals(3.0, check, 0.0);
       }
+      //----------------------------------------Litre--------------------------------------------
+      @Test
+      public void given0LitreAnd0Litre_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
