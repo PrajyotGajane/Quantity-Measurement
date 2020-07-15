@@ -306,16 +306,18 @@ public class QuantityMeasurementTest {
       public void given1GallonAnd3Point78Litre_WhenEqualTo7Point57Litre_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 3.78);
-            total = quantityMeasurement.valueAddition(firstValue,secondValue);
+            total = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(7.56, total, 0.0);
       }
+
       @Test
       public void given1LitreAnd1000Millilitre_WhenEqualTo2Litre_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 1000.0);
-            total = quantityMeasurement.valueAddition(firstValue,secondValue);
+            total = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(2.0, total, 0.0);
       }
+
       //----------------------------------------Kilogram--------------------------------------------
       @Test
       public void given0KilogramAnd0Kilogram_WhenEqual_ShouldReturnTrue() {
@@ -323,6 +325,7 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForKilogram_WhenEqual_ShouldReturnFalse() {
             try {
@@ -339,10 +342,25 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0KilogramAnd1Gram_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
+      }
+
+      //----------------------------------------Grams--------------------------------------------
+      @Test
+      public void given0GramAnd0Gram_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+      @Test
+      public void given1KilogramAnd1000Gram_WhenNotEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1000.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 }
