@@ -290,4 +290,10 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+      @Test
+      public void given1000MillilitreAnd1Litre_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, 1000.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
 }
