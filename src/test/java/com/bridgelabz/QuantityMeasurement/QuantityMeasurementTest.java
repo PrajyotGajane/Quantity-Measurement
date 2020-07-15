@@ -323,5 +323,14 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+      @Test
+      public void givenNullValueForKilogram_IfEqual_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
+      }
 
 }
