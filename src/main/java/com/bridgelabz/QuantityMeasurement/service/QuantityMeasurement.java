@@ -19,7 +19,7 @@ public class QuantityMeasurement {
             }
       }
 
-      public Double addition(double firstValue, double secondValue) {
+      public Double valueAddition(double firstValue, double secondValue) {
             return firstValue + secondValue;
       }
 

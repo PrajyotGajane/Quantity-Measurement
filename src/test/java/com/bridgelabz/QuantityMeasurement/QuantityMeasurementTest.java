@@ -170,7 +170,7 @@ public class QuantityMeasurementTest {
       public void given2InchAnd2Inch_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
-            Double check = quantityMeasurement.addition(firstValue, secondValue);
+            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(4.0, check, 0.0);
       }
 
@@ -178,7 +178,7 @@ public class QuantityMeasurementTest {
       public void given1FeetAnd2Inch_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
-            Double check = quantityMeasurement.addition(firstValue, secondValue);
+            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(14.0, check, 0.0);
       }
 
@@ -186,7 +186,7 @@ public class QuantityMeasurementTest {
       public void given1FeetAnd1Feet_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
-            Double check = quantityMeasurement.addition(firstValue, secondValue);
+            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(24.0, check, 0.0);
       }
 
@@ -194,7 +194,7 @@ public class QuantityMeasurementTest {
       public void given2InchAnd2_5CM_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 2.5);
-            Double check = quantityMeasurement.addition(firstValue, secondValue);
+            Double check = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(3.0, check, 0.0);
       }
 
@@ -244,16 +244,28 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0GallonAnd0Litre_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0GallonAnd1Litre_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GALLON, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.LITRE, 1.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
+      }
+
+      @Test
+      public void givenNullValueForGallon_IfEqual_ShouldReturnTrue() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.GALLON, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println("Exception occurred");
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
       }
 }
