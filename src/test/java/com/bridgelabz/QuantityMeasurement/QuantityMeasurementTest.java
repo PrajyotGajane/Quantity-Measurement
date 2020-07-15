@@ -357,12 +357,14 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given1KilogramAnd1000Gram_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 1.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1000.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForGram_IfEqual_ShouldReturnFalse() {
             try {
@@ -372,6 +374,7 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       //----------------------------------------Tonne--------------------------------------------
       @Test
       public void given0TonneAnd0Tonne_WhenEqual_ShouldReturnTrue() {
@@ -379,12 +382,14 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0TonneAnd0Kilogram_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForTonne_IfEqual_ShouldReturnFalse() {
             try {
@@ -393,5 +398,12 @@ public class QuantityMeasurementTest {
                   System.out.println("Exception occurred");
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
+      }
+      @Test
+      public void given1TonneAnd1000Gram_WhenEqualTo1001Kilogram_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 1000.0);
+            total = quantityMeasurement.valueAddition(firstValue, secondValue);
+            Assert.assertEquals(1001.0, total, 0.0);
       }
 }
