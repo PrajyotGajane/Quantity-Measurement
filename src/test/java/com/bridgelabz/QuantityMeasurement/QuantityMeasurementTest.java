@@ -188,4 +188,11 @@ public class QuantityMeasurementTest {
             Double check = quantityMeasurement.addition(firstValue,secondValue);
             Assert.assertEquals(24.0, check, 0.0);
       }
+      @Test
+      public void given2InchAnd2_5CM_WhenAdded_ShouldReturnTotal() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, 2.5);
+            Double check = quantityMeasurement.addition(firstValue,secondValue);
+            Assert.assertEquals(3.0, check, 0.0);
+      }
 }
