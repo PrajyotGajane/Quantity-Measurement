@@ -181,4 +181,11 @@ public class QuantityMeasurementTest {
             Double check = quantityMeasurement.addition(firstValue,secondValue);
             Assert.assertEquals(14.0, check, 0.0);
       }
+      @Test
+      public void given1FeetAnd1Feet_WhenAdded_ShouldReturnTotal() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
+            Double check = quantityMeasurement.addition(firstValue,secondValue);
+            Assert.assertEquals(24.0, check, 0.0);
+      }
 }
