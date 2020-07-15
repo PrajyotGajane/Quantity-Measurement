@@ -350,7 +350,7 @@ public class QuantityMeasurementTest {
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
 
-      //----------------------------------------Grams--------------------------------------------
+      //----------------------------------------Gram--------------------------------------------
       @Test
       public void given0GramAnd0Gram_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.GRAM, 0.0);
@@ -371,5 +371,12 @@ public class QuantityMeasurementTest {
                   System.out.println("Exception occurred");
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
+      }
+      //----------------------------------------Tonne--------------------------------------------
+      @Test
+      public void given0TonneAnd0Tonne_WhenEqual_ShouldReturnTrue() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 0.0);
+            Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 }
