@@ -31,6 +31,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.FEET, null);
             } catch (QuantityMeasurementException e) {
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -146,7 +147,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.CENTIMETER, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -226,7 +227,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.LITRE, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -265,7 +266,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.GALLON, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -290,7 +291,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.MILLILITRE, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -331,7 +332,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.KILOGRAM, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -370,7 +371,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.GRAM, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -395,7 +396,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.TONNE, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -430,7 +431,7 @@ public class QuantityMeasurementTest {
             try {
                   quantityMeasurement.quantityMeasurer(UnitType.FAHRENHEIT, null);
             } catch (QuantityMeasurementException e) {
-                  System.out.println("Exception occurred");
+                  System.out.println(e.getMessage());
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
@@ -440,6 +441,15 @@ public class QuantityMeasurementTest {
             firstValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
+      }
+      @Test
+      public void givenNullValueForCelsius_IfEqual_ShouldReturnFalse() {
+            try {
+                  quantityMeasurement.quantityMeasurer(UnitType.CELSIUS, null);
+            } catch (QuantityMeasurementException e) {
+                  System.out.println(e.getMessage());
+                  Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
+            }
       }
 
 }
