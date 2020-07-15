@@ -164,11 +164,21 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
 
+      //------------------------------------Addition of length values----------------------------------
+
       @Test
-      public void add() {
+      public void given2InchAnd2Inch_WhenAdded_ShouldReturnTotal() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
             Double check = quantityMeasurement.addition(firstValue,secondValue);
             Assert.assertEquals(4.0, check, 0.0);
+      }
+
+      @Test
+      public void given1FeetAnd2Inch_WhenAdded_ShouldReturnTotal() {
+            firstValue = quantityMeasurement.quantityMeasurer(UnitType.FEET, 1.0);
+            secondValue = quantityMeasurement.quantityMeasurer(UnitType.INCH, 2.0);
+            Double check = quantityMeasurement.addition(firstValue,secondValue);
+            Assert.assertEquals(14.0, check, 0.0);
       }
 }
