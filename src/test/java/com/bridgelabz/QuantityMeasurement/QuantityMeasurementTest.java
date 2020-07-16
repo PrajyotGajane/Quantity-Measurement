@@ -1,7 +1,7 @@
 package com.bridgelabz.QuantityMeasurement;
 
 import com.bridgelabz.QuantityMeasurement.exception.QuantityMeasurementException;
-import com.bridgelabz.QuantityMeasurement.utility.UnitType;
+import com.bridgelabz.QuantityMeasurement.enums.UnitType;
 import com.bridgelabz.QuantityMeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Before;
@@ -400,6 +400,7 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       @Test
       public void given1TonneAnd1000Gram_WhenEqualTo1001Kilogram_ShouldReturnTrue() {
             firstValue = quantityMeasurement.quantityMeasurer(UnitType.TONNE, 1.0);
@@ -407,6 +408,7 @@ public class QuantityMeasurementTest {
             total = quantityMeasurement.valueAddition(firstValue, secondValue);
             Assert.assertEquals(1001.0, total, 0.0);
       }
+
       //----------------------------------------Fahrenheit--------------------------------------------
       @Test
       public void given0FahrenheitAnd0Fahrenheit_WhenEqual_ShouldReturnTrue() {
@@ -414,18 +416,21 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0FahrenheitAnd1Celsius_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 0.0);
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 3.0);
             Assert.assertNotEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given0FahrenheitAnd0Celsius_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 32.0);
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForFahrenheit_WhenExceptionOccurs_ShouldReturnCustomException() {
             try {
@@ -435,6 +440,7 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       //----------------------------------------Celsius--------------------------------------------
       @Test
       public void given0CelsiusAnd0Celsius_WhenEqual_ShouldReturnTrue() {
@@ -442,6 +448,7 @@ public class QuantityMeasurementTest {
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 0.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void givenNullValueForCelsius_IfEqual_ShouldReturnFalse() {
             try {
@@ -451,12 +458,14 @@ public class QuantityMeasurementTest {
                   Assert.assertEquals(e.type, QuantityMeasurementException.ExceptionType.NULL_VALUE);
             }
       }
+
       @Test
       public void given35_6FahrenheitAnd2Celsius_WhenNotEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 35.6);
             secondValue = quantityMeasurement.temperatureConversion(UnitType.CELSIUS, 2.0);
             Assert.assertEquals(firstValue, secondValue, 0.0);
       }
+
       @Test
       public void given212FahrenheitAnd100Celsius_WhenEqual_ShouldReturnTrue() {
             firstValue = quantityMeasurement.temperatureConversion(UnitType.FAHRENHEIT, 212.0);

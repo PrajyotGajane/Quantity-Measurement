@@ -1,9 +1,9 @@
 package com.bridgelabz.QuantityMeasurement.service;
 
 import com.bridgelabz.QuantityMeasurement.exception.QuantityMeasurementException;
-import com.bridgelabz.QuantityMeasurement.utility.UnitType;
+import com.bridgelabz.QuantityMeasurement.enums.UnitType;
 
-public class QuantityMeasurement {
+public class QuantityMeasurement implements IQuantityMeasurement{
       /**
        * to convert passed values
        *
@@ -30,19 +30,19 @@ public class QuantityMeasurement {
             return firstValue + secondValue;
       }
 
-      public boolean equals(Object object) {
-            if (object == this)
-                  return true;
-            if (this.getClass() == object.getClass())
-                  return true;
-            return false;
-      }
-
       public Double temperatureConversion(UnitType type, double valuePassed) {
             Double temperature = valuePassed;
             if (type.equals(type.CELSIUS)) {
                   temperature = (valuePassed * (9.0 / 5)) + 32;
             }
             return temperature;
+      }
+
+      public boolean equals(Object object) {
+            if (object == this)
+                  return true;
+            if (this.getClass() == object.getClass())
+                  return true;
+            return false;
       }
 }
